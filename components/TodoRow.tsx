@@ -1,8 +1,13 @@
+import trashIcon from 'assets/trash.png'
+import Image from 'next/image'
 interface TodoRow {
   text: string
   isComplete: boolean
   handleComplete: (targetIndex: number) => void
+  handleTodoRemove: any
+  index: number
 }
+
 const TodoRow = (props: TodoRow) => {
   return (
     <>
@@ -11,7 +16,10 @@ const TodoRow = (props: TodoRow) => {
           <span
             className={'rounded-[50%] w-[10px] h-[10px] inline-block bg-primary-default mr-s8 border-[1px] border-primary-color'}
           ></span>
-          {props.text}
+          <span className={"mr-s8"}>{props.text}</span>
+          <span className={"cursor-pointer h-[20px]"} onClick={(e) => props.handleTodoRemove(e, props.index)}>
+            <Image src={trashIcon} alt="쓰레기통"  width={20} height={20}/>
+          </span>
         </li>
       ) : (
         <li className={'flex items-center mb-s8 cursor-pointer'} onClick={props.handleComplete}>
