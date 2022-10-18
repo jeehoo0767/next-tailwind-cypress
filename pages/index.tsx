@@ -32,7 +32,14 @@ const Home: NextPage = () => {
         }
       }
     })
-    console.log(targetIndex)
+    setTodoList(nextList)
+  }
+
+  const handleTodoRemove = (e: any, targetIndex: number) => {
+    e.stopPropagation()
+    const nextList = todoList.filter((_, index) => {
+      return index !== targetIndex
+    })
     setTodoList(nextList)
   }
 
@@ -51,7 +58,7 @@ const Home: NextPage = () => {
           <ul>
             {todoList.map((item, index) => (
               <>
-                <TodoRow text={item.text} isComplete={item.isComplete} handleComplete={() => handleComplete(index)} />
+                <TodoRow text={item.text} isComplete={item.isComplete} handleComplete={() => handleComplete(index)} handleTodoRemove={handleTodoRemove} index={index}/>
               </>
             ))}
           </ul>
