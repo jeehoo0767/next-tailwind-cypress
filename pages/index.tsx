@@ -58,7 +58,13 @@ const Home: NextPage = () => {
           <ul>
             {todoList.map((item, index) => (
               <>
-                <TodoRow text={item.text} isComplete={item.isComplete} handleComplete={() => handleComplete(index)} handleTodoRemove={handleTodoRemove} index={index}/>
+                <TodoRow
+                  text={item.text}
+                  isComplete={item.isComplete}
+                  handleComplete={() => handleComplete(index)}
+                  handleTodoRemove={handleTodoRemove}
+                  index={index}
+                />
               </>
             ))}
           </ul>
@@ -66,6 +72,7 @@ const Home: NextPage = () => {
             <div className={'flex items-center mb-s8 animate-appear-todo translate-x-[80px]'}>
               <span className={'rounded-[50%] w-[8px] h-[8px] inline-block mr-s8 border-[1px] border-primary-color'}></span>
               <input
+                data-cy={'todo-input'}
                 ref={inputRef}
                 type="text"
                 className={'border-2 rounded-[4px] py-[4px] px-[8px]'}
@@ -77,13 +84,14 @@ const Home: NextPage = () => {
                   }
                 }}
               />
-              <button className={'ml-s8'} onClick={() => submitTodo(todoValue)}>
+              <button data-cy={'todo-submit'} className={'ml-s8'} onClick={() => submitTodo(todoValue)}>
                 Submit
               </button>
             </div>
           )}
 
           <button
+            data-cy={'add-todo'}
             className={
               'bg-primary-default w-[180px] py-s8 text-center text-white rounded-[30px] absolute left-[50%] translate-x-[-50%] shadow-default hover:scale-105'
             }
