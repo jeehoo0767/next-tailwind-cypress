@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             'text-center font-bold text-[25px] mx-auto text-white bg-primary-default max-w-[576px] px-[60px] py-[8px] shadow-default'
           }
         >
-          Discovery Challenge
+          TodoList - Next With Tailwind
         </h1>
 
         <section className={'bg-white mt-s12 p-s16 max-w-[576px] mx-auto text-primary-color shadow-default relative'}>
