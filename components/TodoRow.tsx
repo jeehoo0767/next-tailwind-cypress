@@ -26,7 +26,7 @@ const TodoRow = (props: TodoRow) => {
           </span>
         </li>
       ) : (
-        <li data-cy="todo-row-no-complete" className={'flex items-center mb-s8 cursor-pointer'} onClick={() => props.handleComplete}>
+        <li data-cy="todo-row-no-complete" className={'flex items-center mb-s8 cursor-pointer'} onClick={() => props.handleComplete(props.index)}>
           <span className={'rounded-[50%] w-[8px] h-[8px] inline-block mr-s8 border-[1px] border-primary-color'}></span>
           {props.text}
         </li>
